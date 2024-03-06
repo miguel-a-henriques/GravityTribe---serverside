@@ -22,6 +22,13 @@ router.get("/parks", (req, res, next) => {
   .catch((err) => next(err)) 
 })
 
+router.get("/parks/:id", (req,res,next)=>{
+  const { id } = req.params;
+  Park.findById(id)
+  .then((park) => res.json(park))
+  .catch((err) => next(err)) 
+})
+
 router.get("/events", (req, res, next) => {
   Event.find()
   .populate("park")
