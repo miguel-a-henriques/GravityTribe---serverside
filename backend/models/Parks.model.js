@@ -11,7 +11,7 @@ const parkSchema = new Schema(
             required: [true, "Description is required"]
         },
         location:{
-            type: String,
+            type: Object,
             required: [true, "Location with coordinates are required"]
         },
         photo:{
