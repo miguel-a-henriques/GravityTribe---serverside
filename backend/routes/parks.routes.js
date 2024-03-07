@@ -13,7 +13,7 @@ router.get("/parks/:id", (req,res,next)=>{
     const { id } = req.params;
     Park.findById(id)
     .then((park) => res.json(park))
-    .catch((err) => next(err)) 
+    .catch((err) => next(err))
 })
 
 router.put("/parks/:id", (req, res, next) => {
