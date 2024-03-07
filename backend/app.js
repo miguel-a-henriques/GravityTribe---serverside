@@ -24,6 +24,18 @@ require("./config")(app);
 const indexRoutes = require("./routes/index.routes");
 app.use("/api", indexRoutes);
 
+const eventsRoutes = require("./routes/events.routes");
+app.use("/api", eventsRoutes);
+
+const parksRoutes = require("./routes/parks.routes");
+app.use("/api", parksRoutes);
+
+const userRoutes = require("./routes/user.routes");
+app.use("/api", userRoutes);
+
+const workoutsRoutes = require("./routes/workouts.routes");
+app.use("/api", workoutsRoutes);
+
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
