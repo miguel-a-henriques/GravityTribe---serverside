@@ -8,5 +8,15 @@ router.get("/workouts", (req, res, next) => {
     .then((allWorkouts) => res.json(allWorkouts))
     .catch((err) => next(err)) 
 })
+
+router.get("/workouts/:id", (req, res, next) => {
+    const {id} = req.params;
+    
+    Workout.findById(id)
+    .then((workout) => res.json(workout))
+    .catch((err) => next(err))
+})
+
+
   
 module.exports = router;

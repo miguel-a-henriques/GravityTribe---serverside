@@ -10,7 +10,11 @@ const workoutSchema = new Schema({
         type: String,
         required: [true],
         enum: ["skills", "push", "pull", "legs"]
-    }
+    },
+    exercises: {
+        type: Array,
+        required: [true]
+    },
 })
 
 const Workout = model("Workout", workoutSchema);
