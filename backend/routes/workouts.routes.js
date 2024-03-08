@@ -18,7 +18,7 @@ router.get("/workouts/:id", (req, res, next) => {
 });
 
 router.post("/workouts", async (req, res, next) => {
-  const {name, expLevel, workoutType, exercises } = req.body;
+  const {name, expLevel, workoutType, exercises, createdBy } = req.body;
 
   if (name === "" || expLevel === "" || workoutType === "" || exercises === "") {
     res.status(400).json({
@@ -27,7 +27,7 @@ router.post("/workouts", async (req, res, next) => {
     });
     return;
   }
-  return Workout.create({ name, expLevel, workoutType, exercises })
+  return Workout.create({ name, expLevel, workoutType, exercises, createdBy})
     .then((newWorkout) => {
       res.status(200).json({ workout: newWorkout });
     })
@@ -38,14 +38,14 @@ router.post("/workouts", async (req, res, next) => {
 
 router.put("/workouts/:id", async (req, res, next) => {
   const { id } = req.params;
-  const { name, expLevel, workoutType, exercises  } = req.body;
+  const { name, expLevel, workoutType, exercises, createdBy  } = req.body;
 
   Workout.findById(id)
     .then((workout) => {
       if (!workout) {
         return res.status(404).json({ message: "Workout not found" });
       } else {
-        return Workout.findByIdAndUpdate(id, {name, expLevel, workoutType, exercises}, { new: true });
+        return Workout.findByIdAndUpdate(id, {name, expLevel, workoutType, exercises, createdBy}, { new: true });
       }
     })
     .then((updatedWorkout) => {

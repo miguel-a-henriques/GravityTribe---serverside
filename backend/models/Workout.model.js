@@ -19,6 +19,9 @@ const workoutSchema = new Schema({
         type: Array,
         required: [true]
     },
+    createdBy: {
+        type: String
+    }
 })
 
 const Workout = model("Workout", workoutSchema);
