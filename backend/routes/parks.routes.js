@@ -3,20 +3,20 @@ const router = express.Router();
 
 const Park = require("../models/Parks.model");
 
-router.get("/parks", (req, res, next) => {
+router.get("/parks", async (req, res, next) => {
   Park.find()
     .then((allParks) => res.json(allParks))
     .catch((err) => next(err));
 });
 
-router.get("/parks/:id", (req, res, next) => {
+router.get("/parks/:id", async (req, res, next) => {
   const { id } = req.params;
   Park.findById(id)
     .then((park) => res.json(park))
     .catch((err) => next(err));
 });
 
-router.put("/parks/:id", (req, res, next) => {
+router.put("/parks/:id", async (req, res, next) => {
   const { id } = req.params;
   const { updatedPark } = req.body;
 

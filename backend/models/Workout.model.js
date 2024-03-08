@@ -1,6 +1,10 @@
 const {Schema, model} = require("mongoose");
 
 const workoutSchema = new Schema({
+    name: {
+        type: String,
+        required: [true]
+    },
     expLevel:{
         type: String,
         required: [true],

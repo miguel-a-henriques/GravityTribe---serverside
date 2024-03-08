@@ -4,7 +4,7 @@ const router = express.Router();
 const Event = require("../models/Event.model")
 
 
-router.get("/events", (req, res, next) => {
+router.get("/events", async (req, res, next) => {
     Event.find()
     .populate("park")
     .then((allEvents) => res.json(allEvents))
