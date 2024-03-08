@@ -23,7 +23,7 @@ router.post("/workouts", async (req, res, next) => {
   if (name === "" || expLevel === "" || workoutType === "" || exercises === "") {
     res.status(400).json({
       message:
-        "Please provide Experience Level, Workout Type and the Exercises",
+        "Please provide Name, Experience Level, Workout Type and the Exercises",
     });
     return;
   }
