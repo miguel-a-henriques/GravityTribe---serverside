@@ -16,4 +16,16 @@ router.get("/user/:id", (req, res, next) => {
     .catch((err) => next(err))
 })
 
+router.put("/user/:id", (req, res, next) => {
+    const {id} = req.params;
+    User.findById(id)
+    .then((user) => {
+        user ? User.findByIdAndUpdate(id, updatedUser, {new: true}) : res.status(404).json({message: "User not found"})
+    })
+    .then((updatedUser) => {
+        res.json(updatedUser);
+    })
+    .catch((err) => next(err)); 
+})
+
 module.exports = router;
