@@ -17,6 +17,9 @@ const eventSchema = new Schema (
         park: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Parks"
+        },
+        createdBy: {
+            type: String
         }
     }
 )

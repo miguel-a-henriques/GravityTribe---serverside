@@ -18,12 +18,19 @@ router.get("/user/:id", (req, res, next) => {
 
 router.put("/user/:id", (req, res, next) => {
     const {id} = req.params;
+    const {name, email, photo, expLevel, workouts, follow, followedBy} = req.body;
     User.findById(id)
     .then((user) => {
-        user ? User.findByIdAndUpdate(id, updatedUser, {new: true}) : res.status(404).json({message: "User not found"})
+        if(user) {
+            return User.findByIdAndUpdate(id, {name, email, photo, expLevel, workouts, follow, followedBy}, {new: true})
+        } else {
+            res.status(404).json({message: "User not found"})
+        }
     })
     .then((updatedUser) => {
-        res.json(updatedUser);
+        if(updatedUser) {
+            res.json(updatedUser);
+        }
     })
     .catch((err) => next(err)); 
 })

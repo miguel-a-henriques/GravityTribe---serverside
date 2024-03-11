@@ -32,6 +32,15 @@ const userSchema = new Schema(
     photo: {
       type: String,
       default: "https://w7.pngwing.com/pngs/177/551/png-transparent-user-interface-design-computer-icons-default-stephen-salazar-graphy-user-interface-design-computer-wallpaper-sphere-thumbnail.png",
+    },
+    follow: {
+      type: Array
+    },
+    followedBy: {
+      type: Array
+    },
+    workouts: {
+      type: Array
     }
   },
   {
