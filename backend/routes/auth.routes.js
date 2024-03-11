@@ -58,7 +58,17 @@ router.post("/signup", (req, res, next) => {
 
       // Create the new user in the database
       // We return a pending promise, which allows us to chain another `then`
-      return User.create({ email, password: hashedPassword, name, photo, expLevel, type, workouts, follow, followedBy });
+      return User.create({
+        email,
+        password: hashedPassword,
+        name,
+        photo,
+        expLevel,
+        type,
+        workouts: [], // Default value for workouts
+        follow: [], // Default value for follow
+        followedBy: [], // Default value for followedBy
+      });
     })
     .then((createdUser) => {
       // Deconstruct the newly created user object to omit the password
