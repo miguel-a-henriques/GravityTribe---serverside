@@ -36,6 +36,9 @@ app.use("/api", userRoutes);
 const workoutsRoutes = require("./routes/workouts.routes");
 app.use("/api", workoutsRoutes);
 
+const postsRoutes = require("./routes/posts.routes");
+app.use("/api", postsRoutes);
+
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
