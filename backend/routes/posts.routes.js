@@ -20,13 +20,13 @@ router.post("/posts", async (req, res, next) => {
 
     return Post.create({image, text, username, userId, userPhoto})
     .then((newPost) => {
-        res.status(200).json({image, text, username, userId, userPhoto})
+        res.status(200).json(newPost)
     })
     .catch((err) => next(err));
 })
 
 
-router.get("posts/:id", async (req,res,next) => {
+router.get("/posts/:id", async (req,res,next) => {
     const {id} = req.params;
 
     Post.findById(id)
@@ -35,7 +35,7 @@ router.get("posts/:id", async (req,res,next) => {
 })
 
 
-router.put("posts/:id", async (req,res,next) => {
+router.put("/posts/:id", async (req,res,next) => {
     const {id} = req.params;
     const {image, text, username, userId, userPhoto} = req.body
 
@@ -52,12 +52,13 @@ router.put("posts/:id", async (req,res,next) => {
 })
 
 
-router.delete("posts/:id", async (req,res,next) => {
+router.delete("/posts/:id", async (req,res,next) => {
     const {id} = req.params;
 
     Post.findByIdAndDelete(id)
     .then((post) => res.status(200).json(post))
     .catch((err) => next(err))
 })
+
 
 module.exports = router;
