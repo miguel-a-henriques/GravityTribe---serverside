@@ -13,7 +13,7 @@ const cookieParser = require("cookie-parser");
 // unless the request is made from the same domain, by default express wont accept POST requests
 const cors = require("cors");
 
-const FRONTEND_URL = process.env.ORIGIN || "http://localhost:3000" || "https://gravity-tribe.vercel.app/";
+const FRONTEND_URL = process.env.ORIGIN || "http://localhost:3000" || "https://gravity-tribe.vercel.app/" || "https://gravity-tribe-ixhoo04du-miguel-a-henriques-projects.vercel.app";
 
 // Middleware configuration
 module.exports = (app) => {
