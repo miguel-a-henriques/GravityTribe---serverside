@@ -14,7 +14,7 @@ const app = express();
 
 app.use(cors({
     // Add the URLs of allowed origins to this array
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174', "https://gravity-tribe.vercel.app/"],
   }))
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
